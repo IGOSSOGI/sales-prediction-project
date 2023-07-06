@@ -1,0 +1,126 @@
+path:
+    train:
+        ./data/cs-train/
+    test:
+        ./data/cs-production/
+    models:
+        ./models/
+    train_results:
+        ./train_results/
+
+        
+data_params:
+    splits_count:
+        5
+    first_date:
+        2017-11-28
+    last_date:
+        2019-11-07  
+
+countries:
+  -  united kingdom
+  -  eire
+  -  germany
+  -  france
+  -  norway
+  -  spain
+  -  hong kong
+  -  portugal
+  -  singapore
+  -  netherlands
+  -  all
+
+        
+models:
+    RandomForestRegressor(random_state=42):
+        import:
+            from sklearn.ensemble import RandomForestRegressor
+        params:
+            model__max_depth:
+              -  5
+              -  10
+            model__n_estimators:
+              -  50
+              -  100
+
+    Lasso(random_state=42):
+        import:
+            from sklearn.linear_model import Lasso
+        params:
+            model__alpha:
+              -  0.001
+              -  0.01
+              -  0.1
+              -  0
+              -  1
+            model__selection:
+              -  cyclic
+              -  random
+              
+    Ridge(random_state=42):
+        import:
+            from sklearn.linear_model import Ridge
+        params:
+            model__alpha:
+              -  0.001
+              -  0.01
+              -  0.1
+              -  0
+              -  1
+            model__solver:
+              -  svd
+              -  cholesky
+              -  sparse_cg
+              -  lsqr
+              -  sag
+    
+    GradientBoostingRegressor(random_state=42):
+        import:
+            from sklearn.ensemble import GradientBoostingRegressor
+        params:
+            model__max_depth:
+              -  5
+              -  10
+            model__n_estimators:
+              -  50
+              -  100
+            model__learning_rate:
+              -  0.01
+              -  0.1
+
+creator:
+    creator__num_lags:
+      -  1
+      -  30
+    creator__num_quantiles:
+      -  3
+      -  9
+    creator__target_season_features:
+      -  
+         -  day
+         -  month
+         -  day_of_week
+      -  
+         -  day
+      -
+      -  
+         -  month
+         -  day_of_week
+      -  
+         -  day_of_week         
+    creator__type_of_target_season_features:
+      -  mean
+      -  one-hot
+    creator__last_revenue_season_features:
+      -  
+         -  day
+         -  month
+         -  day_of_week
+      -  
+         -  day
+      -
+      -  
+         -  month
+         -  day_of_week
+      -  
+         -  day_of_week

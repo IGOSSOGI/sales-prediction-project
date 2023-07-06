@@ -1,0 +1,4 @@
+Data on online store sales are given. The data is presented as json files and they are in ./data
+Based on these data, you need to build a predictive model that will predict the total profit of the store for 30 days, starting from the current date.
+The same must be done separately for the top 10 countries with the highest income. 
+What the data looks like can be seen in jupyter notebook ./notebooks/proj.ipynb

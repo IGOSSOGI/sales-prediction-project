@@ -1,0 +1,8 @@
+1. run image from dockerhub
+        docker run -it --rm --name sales_prediction -p 8080:8080 igossogi/sales_prediction:latest
+        
+2. To predict value on country and date. Ctrl-C to exit predict.py. Ctrl-D to exit from container shell
+        python predict.py
+
+3. To run dashboard. Ctrl-C to exit dashboard.py. Ctrl-D to exit from container shell
+        python dashboard.py

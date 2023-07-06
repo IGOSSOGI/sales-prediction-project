@@ -1,0 +1,14 @@
+1. Clone project
+        git clone https://github.com/IGOSSOGI/sales-prediction-project
+
+1. Create docker image
+        docker build -t sales_prediction:latest . 
+
+2. Run shell
+        docker run --rm -it --name sales_prediction -p 8080:8080 sales_prediction:latest
+
+3. To predict value on country and date. Ctrl-C to exit predict.py. Ctrl-D to exit from container shell
+        python predict.py
+
+4. To run dashboard. Ctrl-C to exit dashboard.py. Ctrl-D to exit from container shell
+        python dashboard.py
